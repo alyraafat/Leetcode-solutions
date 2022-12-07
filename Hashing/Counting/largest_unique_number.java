@@ -6,7 +6,7 @@ class Solution {
             m.put(nums[i],m.getOrDefault(nums[i],0)+1);
         }
         int max = -1;
-        for(int key: nums){
+        for(int key: m.keySet()){
             if(m.get(key)==1 && key>max) max = key; 
         }
         return max;
