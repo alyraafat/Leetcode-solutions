@@ -28,11 +28,12 @@ class Solution {
             return;
         }
         for(int neighbor : graph.get(node)){
-            if(neighbor==dest) {
-                flag = true;
-                return;
-            }
+            
             if(!seen.contains(neighbor)){
+                if(neighbor==dest) {
+                    flag = true;
+                    return;
+                }
                 seen.add(neighbor);
                 dfs(neighbor,dest,graph);
             }
