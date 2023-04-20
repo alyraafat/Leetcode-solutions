@@ -33,7 +33,6 @@ class Solution {
                         continue;
                     }
                     String newGene = str.substring(0, i) + ("" + choice) + str.substring(i + 1);
-                    // System.out.println(newGene);
                     if(!seen.contains(newGene)&&bankSet.contains(newGene)){
                         seen.add(newGene);
                         if(newGene.equals(endGene)) return steps+1;
