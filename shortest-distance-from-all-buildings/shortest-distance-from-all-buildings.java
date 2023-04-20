@@ -63,12 +63,6 @@ class Solution {
                     }
                     if(buildingsSeen.size()==buildingsCount&&temp<ans){
                         ans = temp;
-                        // System.out.println(i+","+j+": "+temp+", "+buildingsSeen.size());
-                        // for(String build: buildingsSeen){
-                        //     System.out.print(build+" - ");                            
-                        // }
-                        // System.out.println();
-                        // if(temp<ans) ans=temp;
                     }else if(buildingsSeen.size()<buildingsCount) {
                         for(int k=0;k<m;k++){
                             for(int z=0;z<n;z++){
