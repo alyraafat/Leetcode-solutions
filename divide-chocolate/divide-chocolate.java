@@ -8,7 +8,6 @@ class Solution {
         }
         while(left<=right){
             int mid = left+(right-left)/2;
-            check(mid, sweetness); 
             if(check(mid, sweetness)<=k+1){
                 right = mid-1;
             }else {
