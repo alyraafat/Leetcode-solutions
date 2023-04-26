@@ -16,14 +16,14 @@ class Solution {
             }
         }
         
-        return left;
+        return right;
     }
     public int check(int minSweet, int[] sweetness){
         int splits = 0;
         int sumSoFar = 0;
         for(int i=0;i<sweetness.length;i++){
             sumSoFar += sweetness[i];
-            if(sumSoFar>minSweet){
+            if(sumSoFar>=minSweet){
                 splits++;
                 sumSoFar = 0;
             }
