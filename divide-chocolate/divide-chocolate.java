@@ -18,12 +18,12 @@ class Solution {
         
         return left;
     }
-    public int check(int maxSum, int[] sweetness){
+    public int check(int minSweet, int[] sweetness){
         int splits = 0;
         int sumSoFar = 0;
         for(int i=0;i<sweetness.length;i++){
             sumSoFar += sweetness[i];
-            if(sumSoFar>maxSum){
+            if(sumSoFar>minSweet){
                 splits++;
                 sumSoFar = 0;
             }
