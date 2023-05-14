@@ -1,5 +1,5 @@
 class Solution {
-    //             bottom up approach
+//     bottom up approach
 //     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
             // int m = obstacleGrid.length;
             // int n = obstacleGrid[0].length;
@@ -20,8 +20,8 @@ class Solution {
             // return dp[m - 1][n - 1];
 //     }
     
-    
     //-----------------------------
+    
     // top down approach
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if(obstacleGrid[0][0]==1) return 0;
