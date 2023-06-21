@@ -21,7 +21,6 @@ class Solution {
             }
         }
         if(nextLex){
-            // System.out.println("next lex");
             int x = nums[z];
             int next = 0;
             int j = -1;
@@ -35,9 +34,6 @@ class Solution {
                     break;
                 }
             }
-            // for(int i=j;i>=z;i--){
-            //     System.out.println(nums[i]);
-            // }
             for(int i=j;i>z;i--){
                 nums[i] = nums[i-1];
             }
