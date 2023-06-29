@@ -1,12 +1,10 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
         int len = 0;
-        int max = 0;
         int min = Integer.MAX_VALUE;
         for(int num:nums){
             if(num>0){
                 len+=1;
-                max = Math.max(max,num);
                 min = Math.min(min,num);
             }
         }
@@ -26,16 +24,5 @@ class Solution {
         }
         if(ans==0) ans = temp.length;
         return ans;
-        // for(int i=1;i<=len;i++){
-        //     boolean found = false;
-        //     for(int num:nums){
-        //         if(num==i){
-        //             found=true;
-        //             break;
-        //         }
-        //     }
-        //     if(!found) return i;
-        // }
-        // return -1;
     }
 }
