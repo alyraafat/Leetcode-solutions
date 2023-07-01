@@ -4,10 +4,6 @@ class Solution {
         int j=dominoes.length()-1;
         if(dominoes.length()==1) return dominoes;
         StringBuilder sb = new StringBuilder(dominoes);
-        double mid = sb.length()/2;
-        if(sb.length()%2==0){
-            mid -= 0.5 ;
-        }
         String replace = "";
         while(i<sb.length()){
             if(sb.charAt(i)!='.') break;
@@ -84,41 +80,6 @@ class Solution {
             }
             
         }
-        // boolean[] isChanged = new boolean[sb.length()];
-        // while(i<j){
-        //     if(sb.charAt(i)=='.'){
-        //         char prev = isChanged[i-1]?'.':sb.charAt(i-1);
-        //         char next = isChanged[i+1]?'.':sb.charAt(i+1);
-        //         if(prev=='R'&&(next=='.'||next=='R')) {
-        //             sb.replace(i,i+1,"R");
-        //             isChanged[i]=true;
-        //         }
-        //         else if((prev=='.'||prev=='L')&&next=='L') {
-        //             sb.replace(i,i+1,"L");
-        //             isChanged[i]=true;
-        //         }
-        //     }
-        //     if(sb.charAt(j)=='.'){
-        //         char prev = isChanged[j-1]?'.':sb.charAt(j-1);
-        //         char next = isChanged[j+1]?'.':sb.charAt(j+1);
-        //         if(prev=='R'&&(next=='.'||next=='R')) {
-        //             sb.replace(j,j+1,"R");
-        //             isChanged[j]=true;
-        //         }
-        //         else if((prev=='.'||prev=='L')&&next=='L') {
-        //             sb.replace(j,j+1,"L");
-        //             isChanged[j]=true;
-        //         }
-        //     }
-        //     i++;
-        //     j--;
-        // }
-        // if(i==j&&sb.charAt(j)=='.'){
-        //     char prev = isChanged[j-1]?'.':sb.charAt(j-1);
-        //     char next = isChanged[j+1]?'.':sb.charAt(j+1);
-        //     if(prev=='R'&&(next=='.'||next=='R')) sb.replace(j,j+1,"R");
-        //     else if((prev=='.'||prev=='L')&&next=='L') sb.replace(j,j+1,"L");
-        // }
         return sb.toString();
     }
 }
