@@ -17,7 +17,6 @@ class Solution {
         int j = s.length() - 1;
         
         while (i < j) {
-            // Found a mismatched pair - try both deletions
             if (s.charAt(i) != s.charAt(j)) {
                 return (checkPalindrome(s, i, j - 1) || checkPalindrome(s, i + 1, j));
             }
