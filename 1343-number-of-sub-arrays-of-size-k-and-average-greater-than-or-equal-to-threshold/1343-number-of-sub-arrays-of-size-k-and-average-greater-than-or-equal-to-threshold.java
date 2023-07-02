@@ -3,9 +3,8 @@ class Solution {
         int ans = 0;
         int i=0;
         int sum=0;
-        int c=0;
         int j=0;
-        for(;j<arr.length;j++){
+        while(j<arr.length){
             if(j-i<k) {
                 sum+=arr[j];
             }else{
@@ -15,6 +14,7 @@ class Solution {
                 i++;
                 sum+=arr[j];
             }
+            j++;
         }
         if(j-i==k&&sum/k>=threshold) ans+=1; 
 
