@@ -8,7 +8,6 @@ class Solution {
             if(j-i<k) {
                 sum+=arr[j];
             }else{
-                // System.out.println(sum);
                 if(sum/k>=threshold) ans+=1; 
                 sum-=arr[i];
                 i++;
