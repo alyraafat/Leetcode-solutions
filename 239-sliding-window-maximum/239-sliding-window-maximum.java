@@ -2,8 +2,6 @@ class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int[] ans = new int[nums.length-k+1];
         int i=0;int j=0;
-        // int max = Integer.MIN_VALUE;
-        // int max2 = max;
         HashMap<Integer,Integer> map = new HashMap<>();
         PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         while(j<nums.length){
