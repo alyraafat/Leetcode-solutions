@@ -33,7 +33,6 @@ class Solution {
                     x++;
                 }
                 sb.replace(0,x,"");
-                // System.out.println(sb.toString());
                 i+=x;
             }else if(map.containsKey(curr)&&temp.get(curr)!=null&&map.get(curr)<=temp.get(curr)){
                 sb.append(curr);
