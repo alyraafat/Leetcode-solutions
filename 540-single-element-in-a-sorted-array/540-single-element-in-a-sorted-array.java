@@ -6,7 +6,6 @@ class Solution {
             int mid = left+(right-left)/2;
             int rem = mid-left;
             if(mid<nums.length-1&&nums[mid]==nums[mid+1]){
-                right=rem%2==0?mid+2:mid-1;
                 if(rem%2==0){
                     left=mid+2;
                 }else{
@@ -23,6 +22,5 @@ class Solution {
             }
         }
         return -1;
-        
     }
 }
