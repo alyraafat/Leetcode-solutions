@@ -26,10 +26,6 @@ class Solution {
             if(!(!st.isEmpty()&&st.peek().getKey()==height))
                 st.push(new Pair<>(height,curr));
         }
-        // while(!st.isEmpty()){
-        //     max = Math.max(max,st.peek().getKey()*st.peek().getValue());
-        //     st.pop();
-        // }
         return max;
     }
 }
