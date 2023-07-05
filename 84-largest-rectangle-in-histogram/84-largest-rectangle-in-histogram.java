@@ -6,7 +6,6 @@ class Solution {
         for(int i=heights.length-2;i>-1;i--){
             int height = heights[i];
             int curr=1;
-            int diff=0;
             while(!st.isEmpty()&&height<st.peek().getKey()){
                 max = Math.max(max,st.peek().getKey()*st.peek().getValue());
                 curr=(int)st.peek().getValue()+1;
