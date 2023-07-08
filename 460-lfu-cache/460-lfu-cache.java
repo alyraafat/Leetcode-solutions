@@ -2,14 +2,10 @@ class LFUCache {
     int capacity;
     HashMap<Integer,Node> map;
     HashMap<Integer,Pair<Node,Node>> mapFreq;
-    // Node head;
-    // Node tail;
     public LFUCache(int capacity) {
         this.capacity=capacity;
         map = new HashMap<>();
         mapFreq = new HashMap<>();
-        // head=new Node(0,0);
-        // tail=new Node(0,0);
     } 
     public int get(int key) {
         if(!map.containsKey(key)) return -1;
