@@ -20,10 +20,7 @@ class Solution {
     }
     public boolean helper(TreeNode node, int targetSum, int acc){
         if(node==null) return false;
-        if(node.left==null&&node.right==null){
-            if(acc+node.val==targetSum) return true;
-            else return false;
-        }
+        if(node.left==null&&node.right==null) return acc+node.val==targetSum;
         boolean left = helper(node.left,targetSum,acc+node.val);
         boolean right = helper(node.right,targetSum,acc+node.val);
         return left||right;
