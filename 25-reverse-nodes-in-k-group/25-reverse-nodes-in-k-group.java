@@ -26,7 +26,6 @@ class Solution {
                 fast=fast.next;
             }
             if(i<=k) break;
-            // System.out.println(slow.next.val+","+fast.val);
             ListNode nextNode = fast.next;
             reverse(prev,slow,fast,nextNode);
             if(slow==head){
