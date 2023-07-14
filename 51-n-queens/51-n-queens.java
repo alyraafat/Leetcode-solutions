@@ -16,18 +16,18 @@ class Solution {
             ans.add(new ArrayList<>(arr));
             return;
         }
-        for(int j=i;j<n;j++){
+        // for(int j=i;j<n;j++){
             StringBuilder sb = new StringBuilder(dots);
             for(int k=0;k<n;k++){
-                int d = k-j;
-                int ad = k+j;
+                int d = k-i;
+                int ad = k+i;
                 if(!cols.contains(k)&&!diag.contains(d)&&!antidiag.contains(ad)){
                     cols.add(k);
                     diag.add(d);
                     antidiag.add(ad);
                     sb.replace(k,k+1,"Q");
                     arr.add(sb.toString());
-                    backtrack(n,arr,j+1,dots);
+                    backtrack(n,arr,i+1,dots);
                     arr.remove(arr.size()-1);
                     cols.remove(k);
                     diag.remove(d);
@@ -35,6 +35,6 @@ class Solution {
                     sb.replace(k,k+1,".");
                 }
             }
-        }
+        // }
     }
 }
