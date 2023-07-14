@@ -12,7 +12,6 @@ class Solution {
             ans+=1;
             return;
         }
-        // StringBuilder sb = new StringBuilder(dots);
         for(int k=0;k<n;k++){
             int d = k-i;
             int ad = k+i;
