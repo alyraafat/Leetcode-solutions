@@ -3,10 +3,6 @@ class Solution {
         Queue<int[]> q = new LinkedList<>();
         int n = board.length;
         HashSet<Integer> seen = new HashSet<>();
-        // for(int j=1;j<=n*n;j++){
-        //     int[] z =  index(j,n);
-        //     System.out.println(j+",row:"+z[0]+",col:"+z[1]);
-        // }
         q.add(new int[]{1,0});
         while(!q.isEmpty()){
             int size = q.size();
