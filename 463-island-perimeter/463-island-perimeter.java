@@ -1,22 +1,16 @@
 class Solution {
     int m;
     int n;
-    // boolean[][] seen;
     int[][] directions = new int[][]{{0,1},{1,0},{0,-1},{-1,0}};
     public int islandPerimeter(int[][] grid) {
         m=grid.length;
         n=grid[0].length;
-        // seen = new boolean[m][n];
         int ans=0;
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-                // if(!seen[i][j]){
-                //     seen[i][j] = true;
                 if(grid[i][j]==1) {
                     ans+=calculatePerimeter(i,j,grid);
-                }
-                // }
-                
+                }                
             }
         }
         return ans;
