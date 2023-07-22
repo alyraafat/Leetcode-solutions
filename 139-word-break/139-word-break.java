@@ -1,14 +1,10 @@
 class Solution {
     HashMap<Integer,Integer> memo = new HashMap<>();
     public boolean wordBreak(String s, List<String> wordDict) {
-        HashSet<String> wordSet = new HashSet<>();
-        for(String w: wordDict){
-            wordSet.add(w);
-        }
-        if(dp(0,wordSet,new StringBuilder(s))) return true;
+        if(dp(0,wordDict,new StringBuilder(s))) return true;
         return false;
     }
-    public boolean dp(int i, HashSet<String> wordSet,StringBuilder sb){
+    public boolean dp(int i, List<String> wordSet,StringBuilder sb){
         if(i==sb.length()) return true;
         if(memo.containsKey(i)){
             return dp(memo.get(i),wordSet,sb);
