@@ -11,7 +11,7 @@ class Solution {
         int i=1;
         while(i*i<=n){
             int x = dp(n-i*i);
-            if(x==Integer.MAX_VALUE) continue;
+            if(x==Integer.MAX_VALUE) break;
             res=Math.min(res,1+x);
             i++;
         }
