@@ -12,12 +12,13 @@ class Solution {
         if(curr<days[0]) return 0;
         if(memo.containsKey(curr)) return memo.get(curr);
         if(!daysSet.contains(curr)){
-            return dp(curr-1,days,costs);
+            memo.put(curr,dp(curr-1,days,costs));
+        }else{
+            int one = costs[0]+dp(curr-1,days,costs);
+            int seven = costs[1]+dp(curr-7,days,costs);
+            int thirty = costs[2]+dp(curr-30,days,costs);
+            memo.put(curr,Math.min(one,Math.min(seven,thirty)));
         }
-        int one = costs[0]+dp(curr-1,days,costs);
-        int seven = costs[1]+dp(curr-7,days,costs);
-        int thirty = costs[2]+dp(curr-30,days,costs);
-        memo.put(curr,Math.min(one,Math.min(seven,thirty)));
         return memo.get(curr);
     }
 }
