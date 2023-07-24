@@ -10,28 +10,29 @@ class Solution {
         c = new int[nums.length];
         int max = 0;
         for (int i = 0; i < nums.length; i++) {
-            max = Math.max(dp(i, nums), max);
+            dp(i, nums);
+            max = Math.max(len[i], max);
         }
         int x = 0;
         for (int i = 0; i < nums.length; i++) {
             if (len[i] == max) {
-                x += countLIS(i, nums);
+                x += c[i];
             }
         }
         return x;
     }
 
-    public int dp(int i, int[] nums) {
-        if (i == nums.length) {
-            return 0;
-        }
+    public void dp(int i, int[] nums) {
+
         if (len[i] != -1) {
-            return len[i];
+            return;
         }
         len[i] = 1;
+        c[i]=1;
         for (int j = 0; j < i; j++) {
             if (nums[j] < nums[i]) {
-                int x = dp(j, nums) + 1;
+                dp(j, nums);
+                int x = len[j]+ 1;
                 if (x == len[i]) {
                     c[i] += c[j];
                 } else if (x > len[i]) {
@@ -40,7 +41,6 @@ class Solution {
                 }
             }
         }
-        return len[i];
     }
 
     public int countLIS(int i, int[] nums) {
