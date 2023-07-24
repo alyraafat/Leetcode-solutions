@@ -43,20 +43,5 @@ class Solution {
         }
     }
 
-    public int countLIS(int i, int[] nums) {
-        if (i == nums.length || len[i] == 1) {
-            return 1;
-        }
-        if (c[i] > 0) {
-            return c[i];
-        }
-        int count = 0;
-        for (int j = 0; j < i; j++) {
-            if (nums[j] < nums[i] && len[j] == len[i] - 1) {
-                count += countLIS(j, nums);
-            }
-        }
-        c[i] = count;
-        return count;
-    }
+    
 }
