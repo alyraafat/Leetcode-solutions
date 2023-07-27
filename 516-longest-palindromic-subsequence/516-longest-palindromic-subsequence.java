@@ -5,7 +5,7 @@ class Solution {
         for(int[] arr: memo){
             Arrays.fill(arr,-1);
         }
-        return Math.max(1,dp(0,s.length()-1,s));
+        return dp(0,s.length()-1,s);
     }
     public int dp(int i,int j, String s){
         if(i==j) return 1;
