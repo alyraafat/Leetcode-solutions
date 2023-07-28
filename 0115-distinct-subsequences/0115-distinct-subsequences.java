@@ -9,11 +9,9 @@ class Solution {
         if(j==t.length()) return 1;
         if(i==s.length()) return 0;
         if(memo[i][j]!=-1) return memo[i][j];
-        int ways=0;
+        int ways=dp(i+1,j,s,t);
         if(s.charAt(i)==t.charAt(j)){
-            ways+=dp(i+1,j+1,s,t)+dp(i+1,j,s,t);
-        }else{
-            ways+=dp(i+1,j,s,t);
+            ways+=dp(i+1,j+1,s,t);
         }
         memo[i][j]=ways;
         return ways;
