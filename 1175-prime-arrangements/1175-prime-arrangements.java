@@ -24,11 +24,9 @@ class Solution {
         HashSet<Integer> p = primes(n);
         memo=new long[n+1];
         Arrays.fill(memo,-1);
-        // System.out.println(p);
         long fPrime = fac(p.size());
         long fNotPrime = fac(n-p.size());
         long fAll=(fPrime*fNotPrime)%mod;
-        // System.out.println(f);
         int ans = (int)(fAll);
         return ans;
     }
