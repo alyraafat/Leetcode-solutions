@@ -7,21 +7,21 @@ class Solution {
     public int minimumEffortPath(int[][] heights) {
         m = heights.length;
         n = heights[0].length;
-        map = new ArrayList[m][n];
+        // map = new ArrayList[m][n];
         seen = new boolean[m][n];
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                map[i][j] = new ArrayList<>();
-                for(int[] d: directions){
-                    int row = d[0]+i;
-                    int col = d[1]+j;
-                    if(valid(row,col)){
-                        int cost = Math.abs(heights[i][j]-heights[row][col]);
-                        map[i][j].add(new int[]{cost,row,col});
-                    }
-                }
-            }
-        }
+        // for(int i=0;i<m;i++){
+        //     for(int j=0;j<n;j++){
+        //         map[i][j] = new ArrayList<>();
+        //         for(int[] d: directions){
+        //             int row = d[0]+i;
+        //             int col = d[1]+j;
+        //             if(valid(row,col)){
+        //                 int cost = Math.abs(heights[i][j]-heights[row][col]);
+        //                 map[i][j].add(new int[]{cost,row,col});
+        //             }
+        //         }
+        //     }
+        // }
         PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)->Integer.compare(a[0],b[0]));
         pq.add(new int[]{0,0,0});
         int min = Integer.MIN_VALUE;
@@ -32,13 +32,26 @@ class Solution {
             if(i==m-1&&j==n-1) return curr[0];
             if(seen[i][j]) continue;
             seen[i][j] = true;
-            for(int[] neigh: map[i][j]){
-                if(curr[0]>neigh[0]){
-                    pq.add(new int[]{curr[0],neigh[1],neigh[2]});
-                }else{
-                    pq.add(neigh); 
+            for(int[] d: directions){
+                int row = d[0]+i;
+                int col = d[1]+j;
+                if(valid(row,col)){
+                    int cost = Math.abs(heights[i][j]-heights[row][col]);
+                    int[] neigh = new int[]{cost,row,col};
+                    if(curr[0]>cost){
+                        pq.add(new int[]{curr[0],row,col});
+                    }else{
+                        pq.add(neigh); 
+                    }
                 }
             }
+            // for(int[] neigh: map[i][j]){
+            //     if(curr[0]>neigh[0]){
+            //         pq.add(new int[]{curr[0],neigh[1],neigh[2]});
+            //     }else{
+            //         pq.add(neigh); 
+            //     }
+            // }
         }
         return -1;
     }
