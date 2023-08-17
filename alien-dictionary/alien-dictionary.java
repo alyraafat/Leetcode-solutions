@@ -54,13 +54,10 @@ class Solution {
                 q.add(c1);
             }
         }
-        // System.out.println(q);
-        boolean empty = true;
         while(!q.isEmpty()){
             char curr = q.poll();
             top.append(curr+"");
             for(char c1: map.get(curr)){
-                empty=false;
                 alphabet[c1-'a']--;
                 if(alphabet[c1-'a']==0) q.add(c1);
             }
