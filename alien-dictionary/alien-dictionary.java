@@ -6,7 +6,6 @@ class Solution {
         for(int i=0;i<26;i++){
             char curr = (char)(c+i);
             map.put(curr,new ArrayList<>());
-            // map.get(curr).add(curr);
         }
         HashSet<Character> found = new HashSet<>();
         char[] alphabet = new char[26];
