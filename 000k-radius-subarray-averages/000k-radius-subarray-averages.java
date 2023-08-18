@@ -2,7 +2,6 @@ class Solution {
     public int[] getAverages(int[] nums, int k) {
         if(k==0) return nums;
         int[] avgs = new int[nums.length];
-        // Arrays.fill(avgs,-1);
         long[] prefixSum = new long[nums.length+1];
         for(int i=1;i<=nums.length;i++){
             avgs[i-1]=-1;
