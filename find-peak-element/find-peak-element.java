@@ -37,8 +37,9 @@ class Solution{
           }
           else if(mid!=0&&nums[mid] < nums[mid-1]) { 
               right = mid; 
-          }else return mid;
-          // else if(mid==0||mid==nums.length-1) return mid;
+          }else {
+              return mid;
+          }
       }
       return right;
     }
