@@ -26,8 +26,10 @@ class Solution {
             int mid = i+(j-i)/2;
             if(nums[mid]>nums[nums.length-1]){
                 i = mid+1;
-            }else{
+            }else if(nums[mid]<nums[nums.length-1]){
                 j=mid-1;
+            }else{
+                break;
             }
         }
         return nums[i];
