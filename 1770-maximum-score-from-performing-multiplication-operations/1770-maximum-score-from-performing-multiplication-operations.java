@@ -1,14 +1,8 @@
 class Solution {
-    Integer[][] memo;
-    int[] nums;
-    int[] multipliers;
     public int maximumScore(int[] nums, int[] multipliers) {
-        memo = new Integer[nums.length][multipliers.length];
-        this.nums=nums;
-        this.multipliers = multipliers;
-        return topDown(0,0);
+        return topDown(nums,multipliers);
     }
-    public int topDown(int i, int j){
+    public int topDownHelper(Integer[][] memo,int[] nums, int[] multipliers,int i, int j){
         if(j==multipliers.length){
             return 0;
         }
@@ -16,7 +10,11 @@ class Solution {
         if(memo[i][j]!=null){
             return memo[i][j];
         }
-        memo[i][j] = Math.max(nums[i]*multipliers[j]+topDown(i+1,j+1),nums[k]*multipliers[j]+topDown(i,j+1));
+        memo[i][j] = Math.max(nums[i]*multipliers[j]+topDownHelper(memo,nums,multipliers,i+1,j+1),nums[k]*multipliers[j]+topDownHelper(memo,nums,multipliers,i,j+1));
         return memo[i][j];
+    }
+    public int topDown(int[] nums, int[] multipliers){
+        Integer[][] memo = new Integer[nums.length][multipliers.length];
+        return topDownHelper(memo,nums,multipliers,0,0);
     }
 }
