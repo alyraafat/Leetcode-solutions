@@ -1,6 +1,19 @@
 class Solution {
     public int maximumScore(int[] nums, int[] multipliers) {
-        return topDown(nums,multipliers);
+        return bottomUp(nums,multipliers);
+        // return topDown(nums,multipliers);
+    }
+    public int bottomUp(int[] nums, int[] multipliers){
+        int[][] dp = new int[nums.length+1][multipliers.length+1];
+        int n = nums.length;
+        int m = multipliers.length;
+        for(int j=m-1;j>=0;j--){
+            for(int i=j;i>=0;i--){
+                int r = n-1-(j-i);
+                dp[i][j] = Math.max(nums[i]*multipliers[j]+dp[i+1][j+1],nums[r]*multipliers[j]+dp[i][j+1]);
+            }
+        }
+        return dp[0][0];
     }
     public int topDownHelper(Integer[][] memo,int[] nums, int[] multipliers,int i, int j){
         if(j==multipliers.length){
