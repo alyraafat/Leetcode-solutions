@@ -13,10 +13,8 @@ class Solution {
                 i++;
             }
         }
-        int i=0;
-        while(i<ans.length()&&ans.charAt(i)=='-') {
-            ans.replace(i,i+1,"");
-            i++;
+        if(ans.length()>0&&ans.charAt(0)=='-'){
+            ans.replace(0,1,"");
         }
         return ans.toString();
     }
