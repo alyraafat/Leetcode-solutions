@@ -10,8 +10,8 @@ class Solution {
         for(int i=1;i<=n;i++){
             if(map.containsKey(i)) continue;
             notSeen.add(i);
+            if(notSeen.size()>1) return -1;
         }            
-        // System.out.println(map);
 
         if(notSeen.size()==1){
             int seen = 0;
