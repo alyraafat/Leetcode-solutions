@@ -10,12 +10,13 @@ class Solution {
             map.put(road[1],temp2);
         }
         int max = 0;
-        HashSet<Integer> seen = new HashSet<>();
+        // HashSet<Integer> seen = new HashSet<>();
         for(int key: map.keySet()){
-            seen.add(key);
+            // seen.add(key);
             int rank = map.get(key).size();
             for(int x: map.keySet()){
-                if(seen.contains(x)) continue;
+                if(x==key) continue;
+                // if(seen.contains(x)) continue;
                 int otherRank = map.get(x).size();
                 if(map.get(x).contains(key)) otherRank--;
                 max = Math.max(max,rank+otherRank);
