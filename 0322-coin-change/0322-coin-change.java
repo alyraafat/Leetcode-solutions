@@ -24,8 +24,8 @@ class Solution {
         int min = Integer.MAX_VALUE;
         for(int j=0;j<coins.length;j++){
             int res = topdown(memo,a-coins[j],coins);
-            if (res >= 0 && res < min) {
-                min = 1+res;
+            if (res!=-1) {
+                min = Math.min(min,1+res);
             }
         }
         memo[a] = min==Integer.MAX_VALUE? -1: min;
