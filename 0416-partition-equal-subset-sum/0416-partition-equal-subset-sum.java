@@ -14,27 +14,21 @@ class Solution {
         int sum = 0;
         for(int num : nums) sum+=num;
         if(sum%2!=0) return false;
-        boolean[][] dp = new boolean[nums.length][sum/2 +1];
+        boolean[][] dp = new boolean[nums.length+1][sum/2 +1];
         for(int i=0;i<dp.length;i++){
-            if(nums[i]>sum/2) return false;
-            dp[i][nums[i]] = true;
+            if(i<dp.length-1&&nums[i]>sum/2) return false;
+            dp[i][0] = true;
         }
-        for(int i=0;i<dp.length;i++){
-            for(int j=nums[i]+1;j<sum/2+1;j++){
-                for(int k=0;k<i;k++){
-                    if(dp[k][j-nums[i]] == true){
-                        dp[i][j] = true;
-                        break;
-                    }
+        for(int i=1;i<dp.length;i++){
+            for(int j=1;j<sum/2+1;j++){
+                if(nums[i-1]>j) {
+                    dp[i][j] = dp[i-1][j];
+                }else if(j-nums[i-1]>-1){
+                    dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i-1]];
                 }
-                
             }
         }
-        boolean res = false; 
-        for(int i=0;i<dp.length;i++){
-            res = res||dp[i][sum/2];
-        }
-        return res;
+        return dp[dp.length-1][sum/2];
     }
     public boolean topdown(Boolean[][] memo,int i, int sum, int[] nums){
         if(sum<0) return false;
