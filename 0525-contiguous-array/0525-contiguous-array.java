@@ -6,7 +6,7 @@ class Solution {
         int len = 0;
         map.put(c,-1);
         for(int i=0;i<nums.length;i++){
-            c += nums[i]==1?1:-1;
+            c += nums[i]==0?1:-1;
             if(map.containsKey(c)){
                 len = Math.max(len,i-map.get(c));
             }else{
